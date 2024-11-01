@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace BreakTheCycle.CyberTaxi
+namespace BreakTheCycle
 {
     [DefaultExecutionOrder(-20)]
     public class ServiceLocator : MonoBehaviour
