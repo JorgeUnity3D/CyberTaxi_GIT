@@ -6,10 +6,17 @@ namespace BreakTheCycle.Core.Pooling
     public abstract class RecyclableObject : MonoBehaviour
     {
         private IObjectPool<RecyclableObject> _objectPool;
+        private Transform _parent;
 
-        internal void SetUp(IObjectPool<RecyclableObject> objectPool)
+        public Transform Parent
+        {
+            get => _parent;
+        }
+
+        internal void SetUp(IObjectPool<RecyclableObject> objectPool, Transform parent)
         {
             _objectPool = objectPool;
+            _parent = parent;
         }
 
         internal virtual void InitRecyclable() { }

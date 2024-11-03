@@ -1,29 +1,31 @@
+using BreakTheCycle.Util.SingletonMonoBehaviour;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace BreakTheCycle.Core.ServiceLocator
 {
     [DefaultExecutionOrder(-20)]
-    public class ServiceLocator : MonoBehaviour
+    public class ServiceLocator : SingletonMonoBehaviour<ServiceLocator>//MonoBehaviour
     {
         private Dictionary<System.Type, Component> _services;
 
 	    #region UNITY_CALLBACKS
 
-        //Singleton
-        private static ServiceLocator _instance;
-        [HideInInspector] public static ServiceLocator Instance { get { return _instance; } }
+        ////Singleton
+        //private static ServiceLocator _instance;
+        //[HideInInspector] public static ServiceLocator Instance { get { return _instance; } }
 
-        private void Awake()
+        protected override void Awake()
         {
-            if (_instance != null && _instance != this)
-            {
-                Destroy(this.gameObject);
-            }
-            else
-            {
-                _instance = this;
-            }
+            //if (_instance != null && _instance != this)
+            //{
+            //    Destroy(this.gameObject);
+            //}
+            //else
+            //{
+            //    _instance = this;
+            //}
+            base.Awake();
             _services = new Dictionary<System.Type, Component>();
         }
 
