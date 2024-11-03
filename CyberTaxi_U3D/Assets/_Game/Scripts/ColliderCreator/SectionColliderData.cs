@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace BreakTheCycle.CyberTaxi
@@ -14,6 +13,6 @@ namespace BreakTheCycle.CyberTaxi
         public float size;
         public float offsetToCenter;
         public float offsetToSides;
-        public RecyclableGameObjectPool _collidersPool;
+        public RecyclableObjectPool _collidersPool;
     }
 }

@@ -11,6 +11,8 @@ namespace BreakTheCycle.CyberTaxi
         [SerializeField] private Transform _visualsHolder;
         [SerializeField] private float _speed;
 
+        #region UNITY_LIFECYCLE
+
         private void Start()
         {
             SetUp();
@@ -20,6 +22,10 @@ namespace BreakTheCycle.CyberTaxi
         {
             transform.Translate(Vector3.forward * _speed * Time.deltaTime);
         }
+
+        #endregion
+
+        #region SETUP
 
         private void SetUp()
         {
@@ -40,5 +46,8 @@ namespace BreakTheCycle.CyberTaxi
                 trailRenderer.material = randomMaterial;
             }
         }
+
+        #endregion
+
     }
 }

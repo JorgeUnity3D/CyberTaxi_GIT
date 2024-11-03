@@ -13,7 +13,7 @@ namespace BreakTheCycle.CyberTaxi
         public UnityAction<float> OnHorizontalInput;
         public UnityAction<float> OnVerticalInput;
 
-    #region UNITY_LIFECYCLE
+        #region UNITY_LIFECYCLE
 
         private void OnEnable()
         {
@@ -38,6 +38,6 @@ namespace BreakTheCycle.CyberTaxi
             }
         }
 
-    #endregion
+        #endregion
     }
 }

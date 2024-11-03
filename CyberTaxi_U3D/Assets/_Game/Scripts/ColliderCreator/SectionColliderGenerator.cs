@@ -1,30 +1,31 @@
-using BreakTheCycle;
-using BreakTheCycle.CyberTaxi;
 using BreakTheCycle.Util.Extensions;
-using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 
-
-namespace BreakTheCycle
+namespace BreakTheCycle.CyberTaxi
 {
-    public class SectionColliderPositioner : MonoBehaviour
+    public class SectionColliderGenerator : MonoBehaviour
     {
         [SerializeField] private GameObject _sectionColliderPrefab;
         [SerializeField] private List<SectionColliderData> _collidersData;
 
-        private SectionColliderPoolService _sectionColliderPool;
+        private SectionColliderPool _sectionColliderPool;
+
+        #region UNITY_LIFECYCLE
 
         private void Awake()
         {
-            _sectionColliderPool = ServiceLocator.Instance.GetService<SectionColliderPoolService>();
+            _sectionColliderPool = ServiceLocator.Instance.GetService<SectionColliderPool>();
         }
 
         private void Start()
         {
             CreateColliders();
-        }
+        }            
+
+        #endregion
+
+        #region CONTROL
 
         [ContextMenu("Create Colliders")]
         public void CreateColliders()
@@ -50,10 +51,6 @@ namespace BreakTheCycle
                     {
                         continue;
                     }
-
-                    //RecyclableSectionCollider sectionObjectA = Instantiate(_sectionColliderPrefab).GetComponent<RecyclableSectionCollider>();
-                    //RecyclableSectionCollider sectionObjectB = Instantiate(_sectionColliderPrefab).GetComponent<RecyclableSectionCollider>();
-
                     RecyclableSectionCollider sectionObjectA = _sectionColliderPool.GetSectionCollider();
                     RecyclableSectionCollider sectionObjectB = _sectionColliderPool.GetSectionCollider();
                     sectionObjectA.name = $"{j.ToString("D3")}A_RecyclableSectionCollider";
@@ -78,6 +75,8 @@ namespace BreakTheCycle
                 colliderData.section.DestroyChildren();
             }
         }
+
+        #endregion
+
     }
 }
-
