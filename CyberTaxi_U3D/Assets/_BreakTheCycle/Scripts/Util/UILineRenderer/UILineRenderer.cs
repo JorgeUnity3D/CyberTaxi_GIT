@@ -1,9 +1,8 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace BreakTheCycle.Util
+namespace BreakTheCycle.Util.UILineRenderer
 {
-
 	public class UILineRenderer : Graphic
 	{
 		public Vector2[] points;

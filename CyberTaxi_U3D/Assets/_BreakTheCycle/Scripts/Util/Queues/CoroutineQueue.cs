@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace BreakTheCycle.Util
+namespace BreakTheCycle.Util.Queues
 {
     public class CoroutineQueue
     {

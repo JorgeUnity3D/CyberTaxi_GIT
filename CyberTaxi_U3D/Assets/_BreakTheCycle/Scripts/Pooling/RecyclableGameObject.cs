@@ -1,6 +1,4 @@
-using UnityEngine;
-
-namespace BreakTheCycle
+namespace BreakTheCycle.Core.Pooling
 {
     public class RecyclableGameObject : RecyclableObject
     {

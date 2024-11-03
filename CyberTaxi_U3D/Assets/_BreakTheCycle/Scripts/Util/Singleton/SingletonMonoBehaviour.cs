@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace BreakTheCycle.Util
+namespace BreakTheCycle.Util.SingletonMonoBehaviour
 {
     public class SingletonMonoBehaviour<T> : MonoBehaviour where T : MonoBehaviour
     {
@@ -12,7 +12,6 @@ namespace BreakTheCycle.Util
         {
             get { return _instance; }
         }
-
 
         #region UNITY_LIFECYCLE
   

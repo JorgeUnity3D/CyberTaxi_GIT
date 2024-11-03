@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace BreakTheCycle
+namespace BreakTheCycle.Core.ServiceLocator
 {
     [DefaultExecutionOrder(-20)]
     public class ServiceLocator : MonoBehaviour

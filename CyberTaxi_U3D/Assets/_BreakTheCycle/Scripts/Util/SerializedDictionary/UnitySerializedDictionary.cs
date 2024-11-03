@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace BreakTheCycle.Util {
+namespace BreakTheCycle.Util.SerializedDictionary
+{
     public abstract class UnitySerializedDictionary<TKey, TValue> : Dictionary<TKey, TValue>, ISerializationCallbackReceiver {
         [SerializeField, HideInInspector]
         private List<TKey> keyData = new List<TKey>();

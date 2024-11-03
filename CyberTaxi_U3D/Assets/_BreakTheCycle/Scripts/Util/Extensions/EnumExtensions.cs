@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Reflection;
+
 namespace BreakTheCycle.Util.Extensions
 {
 	public static class EnumExtensions

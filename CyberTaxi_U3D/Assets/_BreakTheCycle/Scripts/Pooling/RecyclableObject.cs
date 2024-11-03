@@ -1,9 +1,8 @@
 using UnityEngine;
 using UnityEngine.Pool;
 
-namespace BreakTheCycle
+namespace BreakTheCycle.Core.Pooling
 {
-
     public abstract class RecyclableObject : MonoBehaviour
     {
         private IObjectPool<RecyclableObject> _objectPool;

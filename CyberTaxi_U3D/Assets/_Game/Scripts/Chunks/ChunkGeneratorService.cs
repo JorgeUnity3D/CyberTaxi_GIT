@@ -1,4 +1,5 @@
-using System.Collections.Generic;
+using BreakTheCycle.Core.Pooling;
+using BreakTheCycle.Core.ServiceLocator;
 using UnityEngine;
 
 namespace BreakTheCycle.CyberTaxi
@@ -31,12 +32,9 @@ namespace BreakTheCycle.CyberTaxi
         private void SetUpChunk()
         {
             Debug.Log($"[ChunkService] SetUpChunk() -> Setting up chunk at Z: {_accumulatedOffsetZ}");
-            //_currentChunk = Instantiate(_chunkPrefab, new Vector3(0, 0, _accumulatedOffsetZ), Quaternion.identity).GetComponent<RecyclableChunk>();
             _currentChunk = _chunkPool.GetChunkLogic();
 
-            //int randomIndex = Random.Range(0, _chunkMeshPrefabs.Count);
             RecyclableGameObject chunkMesh = _chunkPool.GetChunkMesh();
-            //GameObject chunkMesh = Instantiate(_chunkMeshPrefabs[randomIndex], Vector3.zero, Quaternion.Euler(0, 90 * randomRotation, 0));
 
             Vector3 chunkPosition = new Vector3(0, 0, _accumulatedOffsetZ);
             Quaternion chunkRotation = Quaternion.Euler(0, 90 * Random.Range(0, 4), 0);

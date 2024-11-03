@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Pool;
 
-namespace BreakTheCycle
+namespace BreakTheCycle.Core.Pooling
 {
     public class RecyclableObjectPool
     {

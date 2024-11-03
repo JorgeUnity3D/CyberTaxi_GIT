@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+
 namespace BreakTheCycle.Util
 {
     public class DontDestroyOnLoad : MonoBehaviour
