@@ -1,23 +1,28 @@
 using BreakTheCycle.Core.ServiceLocator;
 using BreakTheCycle.Util.Extensions;
 using System;
+using System.Buffers;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.ParticleSystem;
 
 namespace BreakTheCycle.CyberTaxi
 {
     public class SectionColliderGenerator : MonoBehaviour
     {
-        [SerializeField] private List<SectionColliderData> _collidersData;
+        [SerializeField] private List<SectionColliderData> _sectionCollidersData;
 
         #region CONTROL
 
-        public List<RecyclableSectionCollider> GenerateSectionColliders(SectionColliderPool sectionColliderPool)
+        public RecyclableSectionCollider[] GenerateSectionColliders(SectionColliderPool sectionColliderPool)
         {
-            List<RecyclableSectionCollider> recyclableSectionColliders = new List<RecyclableSectionCollider>();
-            for (int i = 0; i < _collidersData.Count; i++)
+            int actualCollidersCount = 0;
+            int maxCollidersCount = CalculateMaxColliderCount();
+            RecyclableSectionCollider[] recyclableSectionColliders = ArrayPool<RecyclableSectionCollider>.Shared.Rent(maxCollidersCount); ;
+                
+            for (int i = 0; i < _sectionCollidersData.Count; i++)
             {
-                SectionColliderData colliderData = _collidersData[i];
+                SectionColliderData colliderData = _sectionCollidersData[i];
                 if (!colliderData.enabled)
                 {
                     continue;
@@ -49,12 +54,39 @@ namespace BreakTheCycle.CyberTaxi
                     sectionObjectA.SetUp(targetSection, positionA, size);
                     sectionObjectB.SetUp(targetSection, positionB, size);
 
-                    recyclableSectionColliders.Add(sectionObjectA);
-                    recyclableSectionColliders.Add(sectionObjectB);
+                    recyclableSectionColliders[actualCollidersCount++] = sectionObjectA;
+                    recyclableSectionColliders[actualCollidersCount++] = sectionObjectB;
                 }
             }
             return recyclableSectionColliders;
-        }        
+        }
+
+        #endregion
+
+        #region UTIL
+
+        public int CalculateMaxColliderCount()
+        {
+            int maxCount = 0;
+            foreach (SectionColliderData _sectionColliderData in _sectionCollidersData)
+            {
+                if (_sectionColliderData.enabled)
+                {
+                    maxCount += CalculateMaxColliders(_sectionColliderData);
+                }
+            }
+            //Debug.Log($"[SectionColliderGenerator] CalculaMax() -> maxCount {maxCount}");
+
+            return maxCount;
+        }
+
+        private int CalculateMaxColliders(SectionColliderData sectionColliderData)
+        {
+            int requiredCount = Mathf.Max(1, sectionColliderData.count / Mathf.RoundToInt(sectionColliderData.size));
+            int estimatedSkips = Mathf.CeilToInt(sectionColliderData.offsetToCenter / sectionColliderData.size);
+            //Debug.Log($"[SectionColliderGenerator] CalculaMax() -> requiredCount {requiredCount} \n estimatedSkips {estimatedSkips} \n total: {(requiredCount - estimatedSkips) * 2}");
+            return (requiredCount - estimatedSkips) * 2;
+        }
 
         #endregion
 

@@ -41,7 +41,7 @@ namespace BreakTheCycle.Core.ServiceLocator
             {
                 return _services[type] as T;
             }
-            // Debug.LogWarning($"Service of type {type.Name} not found");
+            Debug.LogWarning($"[ServiceLocator] GetService() -> Service of type {type.Name} not found");
             return null;
         }
 
@@ -55,7 +55,7 @@ namespace BreakTheCycle.Core.ServiceLocator
             }
             else
             {
-                // Debug.LogWarning($"Service of type {type.Name} is already registered");
+                Debug.LogWarning($"[ServiceLocator] RegisterService() -> Service of type {type.Name} is already registered");
             }
         }
 

@@ -361,14 +361,50 @@ MonoBehaviour:
     size: 1
     offsetToCenter: 4
     offsetToSides: 4
-  - enabled: 1
+  - enabled: 0
     section: {fileID: 1153895110645647890}
     count: 67
     orientation: 0
     size: 0.75
     offsetToCenter: 4
     offsetToSides: 4
+  - enabled: 0
+    section: {fileID: 86952697818479691}
+    count: 67
+    orientation: 0
+    size: 0.75
+    offsetToCenter: 4
+    offsetToSides: 4
   - enabled: 1
+    section: {fileID: 7683920440602401585}
+    count: 1
+    orientation: 1
+    size: 10
+    offsetToCenter: 0
+    offsetToSides: 4
+  _sectionCollidersData:
+  - enabled: 1
+    section: {fileID: 2638750039413934313}
+    count: 50
+    orientation: 1
+    size: 1
+    offsetToCenter: 4
+    offsetToSides: 4
+  - enabled: 1
+    section: {fileID: 7524499964554783189}
+    count: 50
+    orientation: 1
+    size: 1
+    offsetToCenter: 4
+    offsetToSides: 4
+  - enabled: 0
+    section: {fileID: 1153895110645647890}
+    count: 67
+    orientation: 0
+    size: 0.75
+    offsetToCenter: 4
+    offsetToSides: 4
+  - enabled: 0
     section: {fileID: 86952697818479691}
     count: 67
     orientation: 0

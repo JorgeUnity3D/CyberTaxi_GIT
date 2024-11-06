@@ -16,7 +16,7 @@ namespace BreakTheCycle.CyberTaxi
 
         private void Awake()
         {
-            _sectionColliderPool = new RecyclableObjectPool(_sectionColliderPrefab, transform, 200, 800);
+            _sectionColliderPool = new RecyclableObjectPool(_sectionColliderPrefab, transform, 10, 1000);
         }
 
         #endregion
@@ -28,12 +28,15 @@ namespace BreakTheCycle.CyberTaxi
             return _sectionColliderPool.SpawnObject<RecyclableSectionCollider>();
         }
 
-        internal void RecycleColliders(List<RecyclableSectionCollider> recyclableSectionColliders)
+        internal void RecycleColliders(RecyclableSectionCollider[] recyclableSectionColliders)
         {
-            for (int i = 0; i < recyclableSectionColliders.Count; i++)
+            for (int i = 0; i < recyclableSectionColliders.Length; i++)
             {
                 RecyclableSectionCollider recyclableSectionCollider = recyclableSectionColliders[i];
-                recyclableSectionCollider.Recycle();
+                if (recyclableSectionCollider != null)
+                {
+                    recyclableSectionCollider.Recycle();
+                }
             }
         }
 
