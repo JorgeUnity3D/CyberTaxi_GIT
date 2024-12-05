@@ -134,15 +134,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3a1d6beec316724458c882084f3ff99b, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3a1d6beec316724458c882084f3ff99b, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3a1d6beec316724458c882084f3ff99b, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3a1d6beec316724458c882084f3ff99b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -163,7 +163,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 3a1d6beec316724458c882084f3ff99b, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: e5a4774ff358cc146a23e6070d0e8447, type: 2}
+      objectReference: {fileID: 2100000, guid: 481a43e3e93ddda4e897d0283df8c884, type: 2}
     - target: {fileID: -7511558181221131132, guid: 3a1d6beec316724458c882084f3ff99b, type: 3}
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
@@ -172,9 +172,13 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[2]'
       value: 
       objectReference: {fileID: 2100000, guid: ba6b6a681c31a444aa8bf35a5208de4a, type: 2}
+    - target: {fileID: -5754084199372789682, guid: 3a1d6beec316724458c882084f3ff99b, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -8373355986247366520, guid: fde3d57f28db4a64fb7cf334d4c0276b, type: 3}
     - target: {fileID: 919132149155446097, guid: 3a1d6beec316724458c882084f3ff99b, type: 3}
       propertyPath: m_Name
-      value: PB_Placeholder_Chunk_01
+      value: PB_Placeholder_ChunkMesh_01
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3a1d6beec316724458c882084f3ff99b, type: 3}
       propertyPath: m_IsActive
